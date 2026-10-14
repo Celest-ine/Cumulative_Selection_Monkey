@@ -22,15 +22,16 @@ def get_targeted_string():
     
     print(
         "*" * 5
-        + " This program will tell you how long it would take to type some words until they match the phrase you entered while keeping the correct characters and generating new random characters for the incorrect ones."
+        + " This program will tell you how long it would take to generate characters until they match the phrase you entered, while keeping the correct characters and generating new random characters for the incorrect ones."
         + "*" * 5
     )
 
     while True:
         try:
-            phrase = (input("What phrase/word do you want the monkey to generate? ").strip())
+            phrase = (input("What phrase/word do you want the monkey to generate? "))
+            check_phrase = phrase.strip()
 
-            if not phrase:
+            if not check_phrase:
                 raise ValueError("The phrase cannot be empty. Please enter a valid phrase.")
         
             for char in phrase:
@@ -92,7 +93,7 @@ def score_generated_strings(the_phrase):
             print(f"Time taken is: {end_time - start_time:.4f} seconds.")
             break
 
-        elif attempts % 100 == 0:
+        elif attempts % 100 == 0: # This exists to give give users feedback during long runs, short runs don't need it.
             print(f"\nAttempts: {attempts}, Score: {score:.2f}%")
             print(f"The best generated phrase is: {current_phrase}")
 
