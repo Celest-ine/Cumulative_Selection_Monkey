@@ -22,7 +22,7 @@ def get_targeted_string():
     
     print(
         "*" * 5
-        + " This program will tell you how long it would take to a monkey to typr some words if the monkey was playing with random keyboard keys and cound remember the correct characters."
+        + " This program will tell you how long it would take to type some words until they match the phrase you entered while keeping the correct characters and generating new random characters for the incorrect ones."
         + "*" * 5
     )
 
@@ -33,12 +33,11 @@ def get_targeted_string():
             if not phrase:
                 raise ValueError("The phrase cannot be empty. Please enter a valid phrase.")
         
-            if len(phrase) > 0:
-                for char in phrase:
-                    if char not in ALLOWED_CHARACTERS:
-                        raise ValueError(
-                            "The phrase contains invalid characters. Please use only letters, digits, punctuation, and spaces."
-                            )
+            for char in phrase:
+                if char not in ALLOWED_CHARACTERS:
+                    raise ValueError(
+                        "The phrase contains invalid characters. Please use only letters, digits, punctuation, and spaces."
+                        )
 
         except ValueError as e:
             print(e)
