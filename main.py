@@ -1,6 +1,9 @@
 """The infinite monkey theorem states that a monkey hitting keys at random on a
 typewriter keyboard for an infinite amount of time will almost surely type any
 given text, such as the complete works of William Shakespeare.
+
+This is a cumulative selection algorithm that keeps the correct characters and generates new random characters for the incorect ones.
+This is a more effective approach than generating a completly random string each time, as it allows the algorithm to converge towards the target phrase more quickly.
 """
 
 import random
@@ -19,25 +22,29 @@ def get_targeted_string():
     
     print(
         "*" * 5
-        + " This program will tell you how long it would take a monkey "
-          "to type some words if the monkey was playing with random keyboard keys. "
+        + " This program will tell you how long it would take to a monkey to typr some words if the monkey was playing with random keyboard keys and cound remember the correct characters."
         + "*" * 5
     )
 
     while True:
-        phrase = (input("What phrase/word do you want the monkey to generate? ").strip())
-        
-        if len(phrase)== 0:
-            raise ValueError("The phrase cannot be empty. Please enter a valid phrase.")
-        elif len(phrase) > 0:
-            for char in phrase:
-                if char not in ALLOWED_CHARACTERS:
-                    raise ValueError(
-                        "The phrase contains invalid characters. Please use only letters, digits, punctuation, and spaces."
-                    )
-        break
+        try:
+            phrase = (input("What phrase/word do you want the monkey to generate? ").strip())
 
-    return phrase
+            if not phrase:
+                raise ValueError("The phrase cannot be empty. Please enter a valid phrase.")
+        
+            if len(phrase) > 0:
+                for char in phrase:
+                    if char not in ALLOWED_CHARACTERS:
+                        raise ValueError(
+                            "The phrase contains invalid characters. Please use only letters, digits, punctuation, and spaces."
+                            )
+
+        except ValueError as e:
+            print(e)
+            continue
+
+        return phrase
 
 
 def generate_string(the_phrase, current_phrase):
