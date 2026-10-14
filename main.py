@@ -36,7 +36,7 @@ def get_targeted_string():
             for char in phrase:
                 if char not in ALLOWED_CHARACTERS:
                     raise ValueError(
-                        "The phrase contains invalid characters. Please use only letters, digits, punctuation, and spaces."
+                        f"The phrase contains invalid character '{char}'. Please use only letters, digits, punctuation, and spaces."
                         )
 
         except ValueError as e:
