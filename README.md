@@ -1,4 +1,4 @@
-# Cumulative Monkey Theorem
+# Cumulative Selection Monkey
 
 The idea of this project is borrowed from the Infinite monkey theorem.
 The infinite monkey theorem states that a monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type any given text, such as the complete works of William Shakespeare.
