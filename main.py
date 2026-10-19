@@ -28,16 +28,16 @@ def get_targeted_string():
 
     while True:
         try:
-            phrase = (input("What phrase/word do you want the monkey to generate? "))
+            phrase = (input("\nWhat phrase/word do you want to generate? "))
             check_phrase = phrase.strip()
 
             if not check_phrase:
-                raise ValueError("The phrase cannot be empty. Please enter a valid phrase.")
+                raise ValueError("\nThe phrase cannot be empty. Please enter a valid phrase.")
         
             for char in phrase:
                 if char not in ALLOWED_CHARACTERS:
                     raise ValueError(
-                        f"The phrase contains invalid character '{char}'. Please use only letters, digits, punctuation, and spaces."
+                        f"\nThe phrase contains invalid character '{char}'. Please use only letters, digits, punctuation, and spaces."
                         )
 
         except ValueError as e:
