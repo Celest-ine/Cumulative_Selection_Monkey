@@ -17,9 +17,10 @@ ALLOWED_CHARACTERS = (
     + " "
 )
 
+
 def get_targeted_string():
-    """Get a string from the user."""
-    
+    """Validate a string from the user."""
+
     print(
         "*" * 5
         + " This program will tell you how long it would take to generate characters until they match the phrase you entered, while keeping the correct characters and generating new random characters for the incorrect ones."
@@ -91,12 +92,13 @@ def score_generated_strings(the_phrase):
             print(f"\nSuccess after {attempts} generations.")
             print(f"The generated phrase is: {current_phrase}")
             print(f"Time taken is: {end_time - start_time:.4f} seconds.")
-            break
+            return current_phrase
 
         elif attempts % 100 == 0: # This exists to give give users feedback during long runs, short runs don't need it.
             print(f"\nAttempts: {attempts}, Score: {score:.2f}%")
             print(f"The best generated phrase is: {current_phrase}")
 
 
-the_phrase = get_targeted_string()
-score_generated_strings(the_phrase)
+if __name__ == "__main__":
+    the_phrase = get_targeted_string()
+    score_generated_strings(the_phrase)
