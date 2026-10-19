@@ -92,7 +92,7 @@ def score_generated_strings(the_phrase):
             print(f"\nSuccess after {attempts} generations.")
             print(f"The generated phrase is: {current_phrase}")
             print(f"Time taken is: {end_time - start_time:.4f} seconds.")
-            return current_phrase
+            return current_phrase, attempts, end_time - start_time
 
         elif attempts % 100 == 0: # This exists to give give users feedback during long runs, short runs don't need it.
             print(f"\nAttempts: {attempts}, Score: {score:.2f}%")
