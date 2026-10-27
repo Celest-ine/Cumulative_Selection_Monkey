@@ -65,7 +65,6 @@ def generate_string(the_phrase, current_phrase):
 
     return "".join(new_phrase)
 
-
 def score_generated_strings(the_phrase):
     """Generate strings until every character matches the target."""
 
