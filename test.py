@@ -2,7 +2,6 @@ from main import generate_string, ALLOWED_CHARACTERS
 
 TARGET = "hello"
 CURRENT = "hxlxo"
-WRONG_INDEX = 1
 RUNS = 300
 
 def test_output_promises():
@@ -27,10 +26,7 @@ def test_wrong_positions_are_rerolled():
 
     for idx, (target_char, current_char) in enumerate(zip(TARGET, CURRENT)):
         if current_char != target_char:
-            assert any(result[idx] for result in results)
-
-
-    
+            assert any(result[idx] != current_char[idx] for result in results)
 
 def test_already_correct_phrase_is_unchanged():
     """Nothing to reroll, so the output is fully predictable."""
