@@ -24,7 +24,13 @@ def test_wrong_positions_are_rerolled():
     """A function that does nothing must fail this test."""
 
     results = [generate_string(TARGET, CURRENT) for _ in range(RUNS)]
-    assert any(result[WRONG_INDEX] != "x" for result in results)
+
+    for idx, (target_char, current_char) in enumerate(zip(TARGET, CURRENT)):
+        if current_char != target_char:
+            assert any(result[idx] for result in results)
+
+
+    
 
 def test_already_correct_phrase_is_unchanged():
     """Nothing to reroll, so the output is fully predictable."""
