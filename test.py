@@ -26,7 +26,7 @@ def test_wrong_positions_are_rerolled():
 
     for idx, (target_char, current_char) in enumerate(zip(TARGET, CURRENT)):
         if current_char != target_char:
-            assert any(result[idx] != current_char[idx] for result in results)
+            assert any(result[idx] != current_char for result in results)
 
 def test_already_correct_phrase_is_unchanged():
     """Nothing to reroll, so the output is fully predictable."""
