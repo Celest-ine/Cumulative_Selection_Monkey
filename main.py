@@ -63,7 +63,8 @@ def generate_string(the_phrase, current_phrase):
             # Generate a new random character for incorrect positions.
             new_phrase.append(random.choice(characters))
 
-    return "".join(new_phrase)
+    #return "".join(new_phrase)
+    return current_phrase
 
 def score_generated_strings(the_phrase):
     """Generate strings until every character matches the target."""
